@@ -1,0 +1,46 @@
+﻿@using BlazorDB.Data
+@using BlazorDB.Data.Interfaces
+
+@page "/suppresion_de_la_ville/{id:int}"
+@inject ICityService CityService
+@inject NavigationManager NavigationManager
+
+<h2>Confirmation de la suppression</h2>
+<p>Voulez-vous vraiment supprimer cette ville??</p>
+<br/>
+<div class="col-md-4">
+    <table class="table">
+        <tr>
+            <td>Name</td>
+            <td>@city.Name</td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td>@city.State</td>
+        </tr>
+    </table>
+    <div class="form-group">
+        <input type="button" class="btn btn-danger" value="Supprimer" @onclick="@Delete" />
+        <input type="button" class="btn btn-info" value="Annuler" @onclick="@Cancel" />
+    </div>
+</div>
+@code {
+    [Parameter]
+    public int id { get; set; }
+    City city = new City();
+
+    protected override async Task OnInitializedAsync()
+    {
+        city = await CityService.SingleCity(id);
+    }
+
+    protected async Task Delete()
+    {
+        await CityService.DeleteCity(id);
+        NavigationManager.NavigateTo("ListeCities");
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("ListeCities");
+    }
+}

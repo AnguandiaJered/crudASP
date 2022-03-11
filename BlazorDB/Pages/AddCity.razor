@@ -1,0 +1,44 @@
+﻿@using BlazorDB.Data
+@using BlazorDB.Data.Interfaces
+
+@inject ICityService CityService
+@inject NavigationManager NavigationManager
+@page "/addcity"
+
+<h2>Ajouter une Ville</h2>
+<hr/>
+
+<form>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="" for="Name">Name</label>
+                <input class="form-control" id="Name" @bind="@city.Name" />
+                <label class="" for="State">State</label>
+                <input class="form-control" id="State" @bind="@city.State" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input type="button" class="btn btn-primary" @onclick="@CreateCity" value="Save" />
+                <input type="button" class="btn btn-danger" @onclick="@Fermer" value="Fermer" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@code {
+    City city = new City();
+    protected async Task CreateCity()
+    {
+        await CityService.CreateCity(city);
+        NavigationManager.NavigateTo("ListeCities");
+    }
+    void Fermer()
+    {
+        NavigationManager.NavigateTo("ListeCities");
+    }
+
+}
