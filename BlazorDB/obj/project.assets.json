@@ -1672,11 +1672,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\BlazorDB\\BlazorDB\\BlazorDB.csproj",
+      "projectUniqueName": "E:\\Projet web\\crudASP\\BlazorDB\\BlazorDB\\BlazorDB.csproj",
       "projectName": "BlazorDB",
-      "projectPath": "E:\\BlazorDB\\BlazorDB\\BlazorDB.csproj",
+      "projectPath": "E:\\Projet web\\crudASP\\BlazorDB\\BlazorDB\\BlazorDB.csproj",
       "packagesPath": "C:\\Users\\Jered\\.nuget\\packages\\",
-      "outputPath": "E:\\BlazorDB\\BlazorDB\\obj\\",
+      "outputPath": "E:\\Projet web\\crudASP\\BlazorDB\\BlazorDB\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Jered\\AppData\\Roaming\\NuGet\\NuGet.Config",

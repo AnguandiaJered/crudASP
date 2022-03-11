@@ -1,0 +1,28 @@
+﻿@using BlazorDB.Data
+@using BlazorDB.Data.Interfaces
+
+@page "/enregistrer_employee"
+@inject NavigationManager Nav
+@inject IEmployeeService EmpService
+@inject ICityService CService
+
+<h2>Ajouter un Employee</h2>
+
+@code {
+    Employee employee = new Employee();
+    IEnumerable<City> cities = new List<City>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        cities = await CService.GetCities();
+    }
+    protected async Task Enregistrer()
+    {
+        await EmpService.CreateEmployee(employee);
+        Nav.NavigateTo("liste_des_employees");
+    }
+    void Fermer()
+    {
+        Nav.NavigateTo("liste_des_employees");
+    }
+}

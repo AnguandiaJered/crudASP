@@ -33,6 +33,7 @@ namespace BlazorDB
             services.AddSingleton<WeatherForecastService>();
             //Add Configurations
             services.AddScoped<ICityService, CityService>();
+            services.AddScoped<IEmployeeService, EmployeeService>();
 
             var sqlConnectionConfiguration = new SqlConnectionConfiguration(Configuration.GetConnectionString("SqlDbContext"));
             services.AddSingleton(sqlConnectionConfiguration);
