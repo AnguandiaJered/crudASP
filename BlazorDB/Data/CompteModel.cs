@@ -5,10 +5,8 @@ using System.Threading.Tasks;
 
 namespace BlazorDB.Data
 {
-    public class City
+    public class CompteModel:Compte
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string State { get; set; }
+        public string ClientName { set; get; }
     }
 }

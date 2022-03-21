@@ -1,0 +1,52 @@
+﻿@using BlazorDB.Data
+@using BlazorDB.Data.Interfaces
+@page "/Listevirement"
+
+@inject IVirementService VirementService
+
+<h3>Liste des Virements</h3>
+<a href="#" class="btn btn-primary offset-10">Ajouter un virement</a>
+
+@if (virement == null)
+{
+    <p>loading...</p>
+}
+else
+{
+    <table class="table table-bordered table-striped mt-5">
+        <thead>
+        <th>Clients</th>
+        <th>Comptes</th>
+        <th>Montant</th>
+        <th>Devise</th>
+        <th>Date retrait</th>
+        <th>Author</th>
+        <th>Actions</th>
+        </thead>
+        <tbody>
+            @foreach (var e in virement)
+            {
+                <tr>
+                    <td>@e.Montant</td>
+                    <td>@e.CompteName</td>
+                    <td>@e.Compte2</td>
+                    <td>@e.Datevirement</td>
+                    <td>@e.Author</td>
+                    <td>
+                        <a class="btn btn-primary oi oi-pencil" href="#">Edit</a>
+                        <a class="btn btn-danger oi oi-trash" href="#">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    IEnumerable<VirementModel> virement;
+
+    protected override async Task OnInitializedAsync()
+    {
+        virement = await VirementService.GetVirement();
+    }
+}

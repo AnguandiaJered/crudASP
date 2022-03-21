@@ -32,8 +32,11 @@ namespace BlazorDB
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
             //Add Configurations
-            services.AddScoped<ICityService, CityService>();
-            services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<IClientService, ClientService>();
+            services.AddScoped<ICompteService, CompteService>();
+            services.AddScoped<IDepotService, DepotService>();
+            services.AddScoped<IRetraitService, RetraitService>();
+            services.AddScoped<IVirementService, VirementService>();
 
             var sqlConnectionConfiguration = new SqlConnectionConfiguration(Configuration.GetConnectionString("SqlDbContext"));
             services.AddSingleton(sqlConnectionConfiguration);

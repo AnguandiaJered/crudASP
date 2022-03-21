@@ -47,15 +47,17 @@ app {
 }
 
 .sidebar {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, 70%);
 }
-
+.sidebar {
+    background-color: #233050!important;
+}
     .sidebar .top-row {
         background-color: rgba(0,0,0,0.4);
     }
 
     .sidebar .navbar-brand {
-        font-size: 1.1rem;
+        font-size: 2rem;
     }
 
     .sidebar .oi {
@@ -66,7 +68,7 @@ app {
     }
 
     .sidebar .nav-item {
-        font-size: 0.9rem;
+        font-size: 1rem;
         padding-bottom: 0.5rem;
     }
 
@@ -148,6 +150,9 @@ app {
     .main .top-row a, .main .top-row .btn-link {
         margin-left: 0;
     }
+}
+.top-row{
+    background-color: #233050!important;
 }
 
 @media (min-width: 768px) {

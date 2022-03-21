@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4VpFV9RhKfIrGbVQuh0JE/ZuA8Vvh9Q9tf91dnIkMmdtU4YzKUh6QA8roIuk27YXSwbq1BYFSIbdtzh2/aAVVQ==",
+  "dgSpecHash": "SRW3dBn1kuFSKhB4TgsFRwLlWVhEBUHDo6YoJxvPJH6Dwi3WKMOOPde2xnRC6fr4TwaKfIl7AeWr7Voc8zP4xg==",
   "success": true,
-  "projectFilePath": "E:\\Projet web\\crudASP\\BlazorDB\\BlazorDB\\BlazorDB.csproj",
+  "projectFilePath": "E:\\Projet web\\banque\\BlazorDB\\BlazorDB\\BlazorDB.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jered\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",
     "C:\\Users\\Jered\\.nuget\\packages\\azure.identity\\1.3.0\\azure.identity.1.3.0.nupkg.sha512",

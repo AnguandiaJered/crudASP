@@ -1,0 +1,53 @@
+﻿@using BlazorDB.Data
+@using BlazorDB.Data.Interfaces
+@page "/Listcompte"
+
+@inject ICompteService CompteService
+
+<h3>Liste des comptes</h3>
+<a href="#" class="btn btn-primary offset-10">Ajouter un compte</a>
+
+@if (compte == null)
+{
+    <p>loading...</p>
+}
+else
+{
+<table class="table table-bordered table-striped mt-5">
+    <thead>
+    <th>Numero Compte</th>
+    <th>Type Compte</th>
+    <th>Date create</th>
+    <th>Solde</th>
+    <th>Clients</th>
+    <th>Author</th>
+    <th>Actions</th>
+    </thead>
+    <tbody>
+        @foreach (var e in compte)
+        {
+            <tr>
+                <td>@e.NumCompte</td>
+                <td>@e.TypeCompte</td>
+                <td>@e.DateCreate</td>
+                <td>@e.Solde</td>
+                <td>@e.ClientName</td>
+                <td>@e.Author</td>
+                <td>
+                    <a class="btn btn-primary oi oi-pencil" href="#">Edit</a>
+                    <a class="btn btn-danger oi oi-trash" href="#">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+}
+
+@code {
+    IEnumerable<CompteModel> compte;
+
+    protected override async Task OnInitializedAsync()
+    {
+        compte = await CompteService.GetCompte();
+    }
+}

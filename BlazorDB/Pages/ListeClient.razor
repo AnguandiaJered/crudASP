@@ -1,0 +1,58 @@
+﻿@using BlazorDB.Data
+@using BlazorDB.Data.Interfaces
+@using BlazorDB.Data.Services
+@page "/Listeclient"
+@inject IClientService ClientService
+
+<h2>Listes des Clients</h2>
+<a class="btn btn-primary offset-10" href="#">Ajouter un client</a>
+
+@if (client == null)
+{
+    <p>loading...</p>
+}
+else
+{
+    <table class="table table-bordered table-striped mt-5">
+        <thead>
+            <tr>
+                <th>Noms</th>
+                <th>Sexe</th>
+                <th>Date naissance</th>
+                <th>Adresse</th>
+                <th>Telephone</th>
+                <th>Ville</th>
+                <th>Nationalité</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var clients in client)
+            {
+            <tr>
+                <td>@clients.Noms</td>
+                <td>@clients.Sexe</td>
+                <td>@clients.Datenaissance</td>
+                <td>@clients.Adresse</td>
+                <td>@clients.Telephone</td>
+                <td>@clients.Ville</td>
+                <td>@clients.Nationalite</td>
+                <td>
+                    <a class="btn btn-primary oi oi-pencil" href="#">Edit</a>
+                    <a class="btn btn-danger oi oi-trash" href="#">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    IEnumerable<Client> client;
+    protected override async Task OnInitializedAsync()
+    {
+        client = await ClientService.GetClients();
+    }
+
+}

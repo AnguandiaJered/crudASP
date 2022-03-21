@@ -1,0 +1,53 @@
+﻿@using BlazorDB.Data
+@using BlazorDB.Data.Interfaces
+@page "/Listeretrait"
+
+@inject IRetraitService RetraitService
+
+<h3>Liste des Retraits</h3>
+<a href="#" class="btn btn-primary offset-10">Ajouter un retrait</a>
+
+@if (retrait == null)
+{
+    <p>loading...</p>
+}
+else
+{
+    <table class="table table-bordered table-striped mt-5">
+        <thead>
+        <th>Clients</th>
+        <th>Comptes</th>
+        <th>Montant</th>
+        <th>Devise</th>
+        <th>Date retrait</th>
+        <th>Author</th>
+        <th>Actions</th>
+        </thead>
+        <tbody>
+            @foreach (var e in retrait)
+            {
+                <tr>
+                    <td>@e.ClientName</td>
+                    <td>@e.CompteName</td>
+                    <td>@e.Montant</td>
+                    <td>@e.Devise</td>
+                    <td>@e.DateRetrait</td>
+                    <td>@e.Author</td>
+                    <td>
+                        <a class="btn btn-primary oi oi-pencil" href="#">Edit</a>
+                        <a class="btn btn-danger oi oi-trash" href="#">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    IEnumerable<RetraitModel> retrait;
+
+    protected override async Task OnInitializedAsync()
+    {
+        retrait = await RetraitService.GetRetrait();
+    }
+}
